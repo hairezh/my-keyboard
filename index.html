@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HID Config Tool</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="color-scheme" content="light dark" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚙️</div>
+      <div>
+        <div class="title">HID Config Tool</div>
+        <div class="subtitle">UI base pronta pra GitHub Pages</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnConnect" class="btn primary">Conectar</button>
+      <button id="btnDisconnect" class="btn" disabled>Desconectar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <h2>Status</h2>
+
+      <div class="grid2">
+        <div class="kv">
+          <div class="k">WebHID</div>
+          <div class="v" id="hidSupport">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Dispositivo</div>
+          <div class="v" id="deviceName">Nenhum</div>
+        </div>
+      </div>
+
+      <div class="hint">
+        <strong>Nota:</strong> WebHID funciona em navegadores baseados em Chromium (Chrome/Edge) e precisa de HTTPS.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Controles</h2>
+
+      <div class="controls">
+        <div class="row">
+          <button id="btnHeartbeat" class="btn" disabled>Heartbeat</button>
+          <button id="btnTriggerTest" class="btn" disabled>Trigger Test</button>
+        </div>
+
+        <div class="row">
+          <button id="btnReadTriggers" class="btn" disabled>Ler Trigger Data</button>
+          <button id="btnReadMaxTravel" class="btn" disabled>Ler Max Travel</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>Luz (exemplo)</h3>
+        <div class="row wrap">
+          <label class="field">
+            <span>Efeito</span>
+            <select id="lightEffect" disabled>
+              <option value="0">Static</option>
+              <option value="1">Breathing</option>
+              <option value="2">Wave</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Brilho</span>
+            <input id="lightBrightness" type="range" min="0" max="255" value="128" disabled />
+          </label>
+
+          <label class="field">
+            <span>Velocidade</span>
+            <input id="lightSpeed" type="range" min="0" max="10" value="5" disabled />
+          </label>
+
+          <label class="field">
+            <span>Cor</span>
+            <input id="lightColor" type="color" value="#00ffaa" disabled />
+          </label>
+
+          <button id="btnApplyLight" class="btn primary" disabled>Aplicar Luz</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Log</h2>
+      <div class="logbar">
+        <button id="btnClearLog" class="btn">Limpar</button>
+        <button id="btnCopyLog" class="btn">Copiar</button>
+      </div>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
